@@ -1,0 +1,18 @@
+<script>
+
+  var stock = "1 lemon, 2 cabbages, and 101 eggs";
+  /**
+   * [regex pattern]
+   */
+  function minusOne(match, amount, unit) {
+    amount = Number(amount) - 101
+    if (amount == 1)    //如果只剩下1个，删除后面的s
+      unit = unit.slice(0, unit.length - 1); 
+    else if (amount == 0)
+      amount = "no"
+    return amount + " " + unit
+  }
+
+  var result = stock.replace(/(\d+) (\w+)/g, minusOne)
+  console.log(result)
+</script>

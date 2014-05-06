@@ -1,0 +1,25 @@
+<script>
+  /**
+   * [替换网页中的特殊符号]
+   * @author tedy <sgsheg@gmail.com>
+   * @param  string
+   * @return string
+   */
+  function escapeHTML(text) {
+    var replacement = {"<": "&lt", ">": "&gt", "&": "&amp", "\"": "&quot;"}
+    // with regex
+    return text.replace(/[<>&"]/g, function(character) {
+      return replacement[character];
+    })
+  }
+
+  // old version replace
+  function escapeHTML(text) {
+    var replacements = [["&", "&amp;"], ["\"", "&quote"], ["<", "&lt"], [">", "&gt"]];
+    forEach(replacement, function(replace) {
+      text = text.replace(replace[0], replace[1]);
+    });
+
+    return text;
+  }
+</script>
